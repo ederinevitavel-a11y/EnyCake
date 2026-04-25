@@ -5,14 +5,14 @@ export const MenuCakes = [
     name: "Cenoura e Brigadeiro", 
     desc: "Massa fofinha feita com cenouras frescas e uma cobertura generosa de brigadeiro cremoso.", 
     msg: "Olá, gostaria de encomendar o Cenoura e Brigadeiro.", 
-    icon: "https://i.imgur.com/u0jmPOU.png",
+    icon: "https://i.imgur.com/vsSR4he.png",
     color: "bg-orange-400"
   },
   { 
     name: "Chocolatudo", 
-    desc: "Intenso sabor de chocolate, com massa úmida e cobertura irresistível.", 
+    desc: "Intenso sabor de chocolate, com massa úmida e cobertura de Brigadeiro com granulado gourmet irresistível.", 
     msg: "Olá, gostaria de encomendar o Chocolatudo.", 
-    icon: "https://i.imgur.com/P9NNlfW.png",
+    icon: "https://i.imgur.com/uCFA2nQ.png",
     color: "bg-amber-900"
   },
   { 
@@ -24,7 +24,7 @@ export const MenuCakes = [
   },
   { 
     name: "Laranja Caseiro", 
-    desc: "O clássico bolo de vó, leve, fofinho e com aroma de laranjas colhidas no pé.", 
+    desc: "O clássico bolo da vovó, leve, fofinho e com aroma de laranjas colhidas no pé.", 
     msg: "Olá, gostaria de encomendar o Laranja Caseiro.", 
     icon: "https://i.imgur.com/HK1GIne.png",
     color: "bg-orange-300"
