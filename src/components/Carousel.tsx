@@ -45,7 +45,10 @@ export function Carousel({ onCakeChange }: { onCakeChange?: (cake: any) => void 
               </a>
             </div>
             <div className="flex-1 text-center md:text-left w-full md:w-1/2">
-              <h2 className="text-5xl md:text-7xl font-heading font-bold mb-6 tracking-tight drop-shadow-md">{currentCake.name}</h2>
+              <h2 className="text-5xl md:text-7xl font-heading font-bold mb-4 tracking-tight drop-shadow-md">{currentCake.name}</h2>
+              <div className="inline-block bg-yellow-300 text-amber-950 px-8 py-3 rounded-xl mb-6 shadow-2xl transform md:-rotate-2 border-2 border-white/50">
+                <span className="text-4xl md:text-5xl font-black tracking-tighter">R$ {currentCake.price}</span>
+              </div>
               <p className="text-lg md:text-xl font-heading font-normal opacity-95 mb-10 leading-relaxed drop-shadow-sm">{currentCake.desc}</p>
             </div>
           </motion.div>
