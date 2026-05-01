@@ -1,7 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-heading: "Outfit", sans-serif;
+  --font-heading: "Fraunces", serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-brand-cream: #fdfaf5;
+  --color-brand-brown: #4a3728;
+  --color-brand-terracotta: #bd7356;
+  --color-brand-sage: #8ba888;
+  --color-brand-yellow: #f4d35e;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-cream text-brand-brown antialiased;
+  }
+}
+
+.bg-checkered {
+  background-image: radial-gradient(#bd7356 0.5px, transparent 0.5px), radial-gradient(#bd7356 0.5px, #fdfaf5 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  opacity: 0.05;
 }
