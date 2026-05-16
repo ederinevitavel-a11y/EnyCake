@@ -51,7 +51,7 @@ export const MenuCakes: Cake[] = [
     msg: "Olá, gostaria de encomendar o Laranja Caseiro.", 
     icon: "https://i.imgur.com/HK1GIne.png",
     color: "bg-orange-300",
-    tag: "Receita de Vó"
+    tag: "Receita de Vovó"
   },
   { 
     id: "limao",

@@ -1,0 +1,27 @@
+{
+  "entities": {
+    "Counter": {
+      "title": "Counter",
+      "description": "Global statistics counters",
+      "type": "object",
+      "properties": {
+        "visits": {
+          "type": "integer",
+          "description": "Total number of page visits"
+        },
+        "lastUpdate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of the last update"
+        }
+      },
+      "required": ["visits"]
+    }
+  },
+  "firestore": {
+    "stats/counters": {
+      "schema": "Counter",
+      "description": "Document holding global usage statistics"
+    }
+  }
+}

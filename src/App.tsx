@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Instagram, Facebook, ShoppingBasket, MapPin, Phone, Heart } from 'lucide-react';
+import { Instagram, Facebook, ShoppingBasket, MapPin, Phone, Heart, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Carousel } from './components/Carousel';
 import { AboutEny } from './components/AboutEny';
@@ -14,6 +14,7 @@ import { Features } from './components/Features';
 import { Testimonials } from './components/Testimonials';
 import { CakeGrid } from './components/CakeGrid';
 import { MenuCakes, Cake, LogoURL } from './constants';
+import { incrementVisitCount, getVisitCount } from './services/statsService';
 
 interface CartItem extends Cake {
   quantity: number;
@@ -23,6 +24,16 @@ export default function App() {
   const [currentCake, setCurrentCake] = useState<Cake>(MenuCakes[0]);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [visitCount, setVisitCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    const handleVisit = async () => {
+      await incrementVisitCount();
+      const count = await getVisitCount();
+      setVisitCount(count);
+    };
+    handleVisit();
+  }, []);
 
   const addToCart = (cake: Cake) => {
     setCartItems(prev => {
@@ -109,26 +120,26 @@ export default function App() {
         onRemoveItem={removeItem}
       />
 
-      <footer className="bg-[#2d241d] text-stone-300 py-20 mt-20 relative overflow-hidden">
+      <footer className="bg-[#2d241d] text-stone-300 py-8 mt-8 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-terracotta/30 to-transparent" />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Column 1: Brand */}
-            <div className="space-y-10">
-              <div className="flex items-center gap-6 text-white">
-                <img src={LogoURL} alt="EnyCake Logo" className="w-20 h-20 rounded-full object-cover border-4 border-brand-terracotta/40 shadow-2xl" />
-                <h2 className="text-5xl font-heading font-bold italic tracking-tight">EnyCake</h2>
+            <div className="space-y-6">
+              <div className="flex items-center gap-4 text-white">
+                <img src={LogoURL} alt="EnyCake Logo" className="w-16 h-16 rounded-full object-cover border-4 border-brand-terracotta/40 shadow-2xl" />
+                <h2 className="text-4xl font-heading font-bold italic tracking-tight">EnyCake</h2>
               </div>
-              <p className="text-2xl font-heading leading-relaxed opacity-80 max-w-lg italic">
+              <p className="text-lg font-heading leading-relaxed opacity-80 max-w-lg italic">
                 "Resgatando o sabor da infância em cada mordida. Nossos bolos são feitos com ingredientes selecionados e muito carinho para trazer alegria para a sua mesa."
               </p>
               <div className="flex gap-4">
                 <motion.div 
                   whileHover={{ scale: 1.1, rotate: 10 }}
-                  className="w-16 h-16 bg-brand-terracotta/10 rounded-2xl flex items-center justify-center border border-brand-terracotta/20 cursor-pointer"
+                  className="w-12 h-12 bg-brand-terracotta/10 rounded-2xl flex items-center justify-center border border-brand-terracotta/20 cursor-pointer"
                 >
-                  <Heart className="w-8 h-8 text-brand-terracotta" fill="currentColor" />
+                  <Heart className="w-6 h-6 text-brand-terracotta" fill="currentColor" />
                 </motion.div>
               </div>
             </div>
@@ -137,8 +148,16 @@ export default function App() {
             <AboutEny />
           </div>
 
-          <div className="mt-20 pt-10 border-t border-white/5 text-center text-sm opacity-40 font-heading italic">
-            &copy; {new Date().getFullYear()} Major. Criado com carinho &hearts; Todos os direitos reservados.
+          <div className="mt-8 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-center text-sm opacity-40 font-heading italic">
+            <div>
+              &copy; {new Date().getFullYear()} Major. Criado com carinho &hearts; Todos os direitos reservados.
+            </div>
+            {visitCount !== null && (
+              <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
+                <Users className="w-3.5 h-3.5" />
+                <span>{visitCount} acessos</span>
+              </div>
+            )}
           </div>
         </div>
       </footer>

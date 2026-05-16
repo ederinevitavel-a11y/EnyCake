@@ -4,7 +4,7 @@ import { Sparkles } from 'lucide-react';
 export function AboutEny() {
   return (
     <div className="flex flex-col items-center justify-center relative group">
-      <div className="relative z-10 flex flex-col items-center gap-10 text-center">
+      <div className="relative z-10 flex flex-col items-center gap-6 text-center">
         <div className="relative flex-shrink-0">
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -13,7 +13,7 @@ export function AboutEny() {
             <img 
               src="https://i.imgur.com/7EjcJHs.png" 
               alt="Eny Agradecimento" 
-              className="w-56 h-56 md:w-64 md:h-64 rounded-[2.5rem] object-cover shadow-2xl border-4 border-white/20 transition-all duration-700"
+              className="w-48 h-48 md:w-56 md:h-56 rounded-[2rem] object-cover shadow-2xl border-4 border-white/20 transition-all duration-700"
             />
           </motion.div>
           
@@ -27,8 +27,8 @@ export function AboutEny() {
         </div>
 
         <div className="max-w-xl px-2">
-          <span className="text-brand-terracotta font-heading underline underline-offset-8 decoration-brand-terracotta/30 text-xl italic tracking-wide">Uma Mensagem Especial</span>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mt-8 italic leading-tight tracking-tight">Obrigado pela visita! Que nossos bolos adocem seu dia.</h2>
+          <span className="text-brand-terracotta font-heading underline underline-offset-4 decoration-brand-terracotta/30 text-lg italic tracking-wide">Uma Mensagem Especial</span>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mt-4 italic leading-tight tracking-tight">Obrigado pela visita! Que nossos bolos adocem seu dia.</h2>
         </div>
       </div>
     </div>

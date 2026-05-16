@@ -20,7 +20,7 @@ const benefits = [
   },
   {
     icon: <Trophy className="w-8 h-8 text-emerald-500" />,
-    title: "Receita de Vó",
+    title: "Receita de Vovó",
     desc: "Sabor autêntico que resgata as melhores memórias da infância."
   }
 ];
@@ -34,21 +34,21 @@ export function Features() {
           <h2 className="text-4xl md:text-6xl font-heading font-bold text-brand-brown mt-4 italic">Por que a EnyCake?</h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="p-6 md:p-8 rounded-[2.5rem] bg-white border border-brand-terracotta/10 hover:shadow-xl hover:-translate-y-1 transition-all group text-center"
+              className="p-6 md:p-7 rounded-3xl bg-white border border-brand-terracotta/5 hover:border-brand-terracotta/20 hover:shadow-2xl hover:-translate-y-2 transition-all group text-center"
             >
-              <div className="mb-6 p-4 bg-brand-cream rounded-full inline-block group-hover:bg-brand-terracotta/10 transition-colors">
-                {benefit.icon}
+              <div className="mb-4 p-3 bg-brand-cream rounded-2xl inline-block group-hover:scale-110 group-hover:bg-brand-terracotta/10 transition-all duration-300">
+                {React.cloneElement(benefit.icon as React.ReactElement, { className: 'w-6 h-6' })}
               </div>
-              <h3 className="text-xl font-heading font-bold text-brand-brown mb-3 italic">{benefit.title}</h3>
-              <p className="text-stone-600 leading-relaxed font-heading italic text-base">{benefit.desc}</p>
+              <h3 className="text-lg font-heading font-bold text-brand-brown mb-2 italic leading-tight">{benefit.title}</h3>
+              <p className="text-stone-600 leading-relaxed font-heading italic text-sm opacity-90">{benefit.desc}</p>
             </motion.div>
           ))}
         </div>

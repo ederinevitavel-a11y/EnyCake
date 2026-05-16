@@ -17,6 +17,21 @@ const testimonials = [
     name: "Camila",
     text: "Atendimento impecável e o bolo de cenoura chegou quentinho. Dá pra sentir o carinho em cada detalhe.",
     role: "Cliente"
+  },
+  {
+    name: "Rosemberg",
+    text: "Os bolos EnyCake são deliciosos! receitas caseiras que vão muito bem com um cafezinho!! ☕️ Eu aprecio muito os de laranja e limão 🍊🍋❤️",
+    role: "Cliente"
+  },
+  {
+    name: "Elaine",
+    text: "Carinho em forma de bolo, qualidade incrível e um sabor marcante!!! Difícil é escolher o meu preferido!",
+    role: "Cliente"
+  },
+  {
+    name: "Rafinha",
+    text: "Os bolos da tia Eny são incríveis. O meu preferido é o chocolatudo",
+    role: "Sobrinha"
   }
 ];
 
@@ -33,21 +48,24 @@ export function Testimonials() {
           <h2 className="text-4xl md:text-6xl font-heading font-bold text-brand-brown mt-4 italic">O que dizem os clientes</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white p-6 md:p-8 rounded-[2.5rem] shadow-sm border border-brand-terracotta/5 relative group hover:shadow-xl transition-all"
+              className="bg-white p-6 rounded-3xl shadow-sm border border-brand-terracotta/5 relative group hover:shadow-2xl hover:border-brand-terracotta/10 transition-all duration-500"
             >
-              <Quote className="absolute top-6 right-8 w-10 h-10 text-brand-terracotta/10 group-hover:text-brand-terracotta/20 transition-colors" />
-              <p className="text-stone-700 italic mb-6 leading-relaxed font-heading text-lg relative z-10">"{t.text}"</p>
-              <div className="border-t border-brand-terracotta/10 pt-4">
-                <h4 className="font-heading font-bold text-xl text-brand-brown italic leading-none">{t.name}</h4>
-                <span className="text-brand-terracotta text-xs font-sans uppercase tracking-widest font-bold opacity-60 mt-2 block">{t.role}</span>
+              <Quote className="absolute top-4 right-6 w-8 h-8 text-brand-terracotta/10 group-hover:text-brand-terracotta/30 group-hover:rotate-12 transition-all duration-500" />
+              <p className="text-stone-700 italic mb-4 leading-relaxed font-heading text-base relative z-10 line-clamp-4 group-hover:line-clamp-none transition-all">"{t.text}"</p>
+              <div className="border-t border-brand-terracotta/5 pt-3 mt-auto">
+                <h4 className="font-heading font-bold text-lg text-brand-brown italic leading-none">{t.name}</h4>
+                <div className="flex items-center gap-1.5 mt-1">
+                  <div className="w-1.5 h-1.5 rounded-full bg-brand-terracotta/40" />
+                  <span className="text-brand-terracotta text-[10px] font-sans uppercase tracking-[0.2em] font-bold opacity-50">{t.role}</span>
+                </div>
               </div>
             </motion.div>
           ))}
